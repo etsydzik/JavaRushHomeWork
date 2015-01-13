@@ -25,18 +25,13 @@ public class Solution
     public static HashSet<Integer> removeAllNumbersMoreThan10(HashSet<Integer> set)
     {
         //Напишите тут ваш код
-//        Iterator<Integer> iterator = set.iterator();
-//        while (iterator.hasNext()){
-//            if (iterator.next() > 10){
-//                iterator.remove();
-//            }
-//        }
-        for (Integer integer : set)
-        {
-            if (integer > 10){
-                set.remove(integer);
+        Iterator<Integer> iterator = set.iterator();
+        while (iterator.hasNext()){
+            if (iterator.next() > 10){
+                iterator.remove();
             }
         }
+
         return set;
     }
 }
