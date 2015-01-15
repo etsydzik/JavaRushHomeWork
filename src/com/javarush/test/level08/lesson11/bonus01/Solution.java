@@ -22,6 +22,8 @@ public class Solution
         Date date = new SimpleDateFormat("MMM",Locale.UK ).parse(s);
 
         System.out.println(s + " is " + (date.getMonth() + 1) + " month");
+//        System.out.println(new SimpleDateFormat("MMMM 'is' M 'month'", Locale.UK).format(date));
+
     }
 
 }
