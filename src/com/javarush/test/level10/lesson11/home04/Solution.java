@@ -12,9 +12,6 @@ package com.javarush.test.level10.lesson11.home04;
 …
 */
 
-import java.util.Collections;
-import java.util.LinkedList;
-
 public class Solution
 {
     public static void main(String[] args)
@@ -27,7 +24,6 @@ public class Solution
             String substring = s.substring(i, s.length());
             System.out.println(substring);
         }
-
     }
 
 }
