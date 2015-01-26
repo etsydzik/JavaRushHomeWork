@@ -18,7 +18,7 @@ public class Solution
     class StringObject implements SimpleObject<String>
     {
         @Override
-        public SimpleObject getInstance()
+        public SimpleObject<String> getInstance()
         {
             return null;
         }
