@@ -10,22 +10,22 @@ public class Solution
     public static void main(String[] args) throws Exception
     {
 
-        System.out.println(new Hobbie().HOBBIE.toString());
+        System.out.println(Dream.HOBBIE.toString());
         System.out.println(new Hobbie().toString());
 
     }
 
         interface Desire
         {
-            public String toString();
+
         }
 
         interface Dream
         {
-             static Hobbie HOBBIE = new Hobbie();
+            Hobbie HOBBIE = new Hobbie();
         }
 
-        static class Hobbie   implements Dream, Desire
+        static class Hobbie implements Dream, Desire
         {
             static int INDEX = 1;
 
