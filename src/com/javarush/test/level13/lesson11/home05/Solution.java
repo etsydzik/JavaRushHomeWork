@@ -41,7 +41,7 @@ public class Solution
         {
             this.name = name;
             this.id = id;
-            return this;
+            return new User();
         }
     }
 
