@@ -18,9 +18,7 @@ package com.javarush.test.level13.lesson11.bonus01;
 */
 
 import java.io.*;
-import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Solution
 {
@@ -32,16 +30,17 @@ public class Solution
 
         FileInputStream fileInputStream = new FileInputStream(fileName);        //поток
         Scanner fileScanner = new Scanner(fileInputStream);                     //обёртка
-        int element;
-        Set<Integer> set = new TreeSet<>();
+        List<Integer> list = new LinkedList<>();
         while (fileScanner.hasNextInt())
         {
+            int element;
             element = fileScanner.nextInt();                                    //считывание цифры
             if (element % 2 == 0){
-                set.add(element);
+                list.add(element);
             }
         }
-        for (Integer integer : set)
+        Collections.sort(list);
+        for (Integer integer : list)
         {
             System.out.println(integer);
         }
