@@ -9,23 +9,29 @@ package com.javarush.test.level14.lesson08.home02;
 6. Метод main менять нельзя!
 */
 
-public class Solution {
-    public static void main(String[] args) {
+public class Solution
+{
+    public static void main(String[] args)
+    {
         getDeliciousDrink().taste();
         System.out.println(getWine().getHolidayName());
         System.out.println(getBubblyWine().getHolidayName());
         System.out.println(getWine().getHolidayName());
     }
 
-    public static Drink getDeliciousDrink() {
-
+    public static Drink getDeliciousDrink()
+    {
+        return new Wine();
+        // или return new BubblyWine();
     }
 
-    public static Wine getWine() {
-
+    public static Wine getWine()
+    {
+        return new Wine();
     }
 
-    public static Wine getBubblyWine() {
-
+    public static Wine getBubblyWine()
+    {
+        return new BubblyWine();
     }
 }
