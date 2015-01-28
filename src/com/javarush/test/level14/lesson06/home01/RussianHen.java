@@ -3,7 +3,7 @@ package com.javarush.test.level14.lesson06.home01;
 /**
  * Created by tsyd on 28.01.2015.
  */
-public class RussianHen extends Hen implements Country
+public class RussianHen extends Hen
 {
     @Override
     int getCountOfEggsPerMonth()
