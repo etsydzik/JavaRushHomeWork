@@ -1,7 +1,10 @@
 package com.javarush.test.level14.lesson08.bonus01;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.sun.javaws.exceptions.ExitException;
+
+
+import java.io.IOException;
+import java.util.*;
 
 /* Нашествие эксепшенов
 Заполни массив exceptions 10 различными эксепшенами.
@@ -34,6 +37,14 @@ public class Solution
         }
 
         //Add your code here
-
+        exceptions.add(new NullPointerException());
+        exceptions.add(new IOException());
+        exceptions.add(new ArrayStoreException());
+        exceptions.add(new ArrayIndexOutOfBoundsException());
+        exceptions.add(new RuntimeException());
+        exceptions.add(new ConcurrentModificationException());
+        exceptions.add(new EmptyStackException());
+        exceptions.add(new FormatterClosedException());
+        exceptions.add(new InputMismatchException());
     }
 }
