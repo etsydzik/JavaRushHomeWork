@@ -58,7 +58,7 @@ public class Solution
         @Override
         Swimable getCurrentAnimal()
         {
-            return new Orca();
+            return this;
         }
     }
 
@@ -68,7 +68,7 @@ public class Solution
         @Override
         Swimable getCurrentAnimal()
         {
-            return new Whale();
+            return this;
         }
     }
 
