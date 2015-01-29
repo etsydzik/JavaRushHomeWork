@@ -36,33 +36,45 @@ public class Solution
     {
         public NotIncapsulatedClass()
         {
-            List<Number> list = new LinkedList<Number>();
-            //1
+            List<Number> list = new LinkedList<>();
+            initList((LinkedList<Number>) list);
+            printListValues((LinkedList<Number>) list);
+            processCastedObjects(list);
+        }
+
+        private LinkedList<Number> initList(LinkedList<Number> list)
+        {
             list.add(new Double(1000f));
             list.add(new Double("123e-445632"));
             list.add(new Float(-90 / -3));
             list.remove(new Double("123e-445632"));
+            return list;
+        }
 
-            //2 - Исправь 2 ошибки
-            for (int i = 0; i <= list.size(); i--)
+        private void printListValues(LinkedList<Number> list)
+        {
+            for (Number number : list)
             {
-                System.out.println(list.get(i));
+                System.out.println(number);
             }
+        }
 
-            //3
-            for (Number object : list)
+        private void processCastedObjects(List<Number> list)
+        {
+            for (Number number : list)
             {
-                //Исправь 2 ошибки
-                if (object instanceof Float)
+                if (number instanceof Float)
                 {
-                    Double a = (Double) object;
+                    Float a = (Float) number;
                     System.out.println("Is float value defined? " + a.isNaN());
-                } else if (object instanceof Double)
+                } else if (number instanceof Double)
                 {
-                    Float a = (Float) object;
+                    Double a = (Double) number;
                     System.out.println("Is double value infinite? " + a.isInfinite());
                 }
             }
         }
     }
+
 }
+
