@@ -1,10 +1,8 @@
 package com.javarush.test.level14.lesson08.bonus01;
 
-import com.sun.javaws.exceptions.ExitException;
-
-
 import java.io.IOException;
 import java.util.*;
+
 
 /* Нашествие эксепшенов
 Заполни массив exceptions 10 различными эксепшенами.
