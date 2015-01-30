@@ -22,4 +22,29 @@ public class Solution {
             System.out.println();
         }
     }
+    public static void printMatrix(byte m, int n, String value){
+        System.out.println("a");
+    }
+    public static void printMatrix(short m, int n, String value){
+        System.out.println("a");
+    }
+    public static void printMatrix(double m, int n, String value){
+        System.out.println("a");
+    }
+    public static void printMatrix(float m, int n, String value){
+        System.out.println("a");
+    }
+
+    public static void printMatrix(int m, byte n, String value){
+        System.out.println("a");
+    }
+    public static void printMatrix(int m, short n, String value){
+        System.out.println("a");
+    }
+    public static void printMatrix(int m, float n, String value){
+        System.out.println("a");
+    }
+    public static void printMatrix(int m, double n, String value){
+        System.out.println("a");
+    }
 }
