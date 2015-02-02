@@ -16,16 +16,20 @@ java: initializer must be able to complete normally
 java: unreachable statement
 */
 
-public class Solution {
+public class Solution
+{
     public static int A = 0;
 
-    static {
+    static
+    {
         //throw an exception here - выбросьте эксепшн тут
+        if (true)throw new RuntimeException();
     }
 
     public static int B = 5;
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         System.out.println(B);
     }
 }
