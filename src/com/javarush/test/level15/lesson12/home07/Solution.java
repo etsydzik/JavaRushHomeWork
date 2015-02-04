@@ -1,11 +1,9 @@
 package com.javarush.test.level15.lesson12.home07;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /* Файл в статическом блоке
 1. Инициализируй константу Constants.FILE_NAME полным путем к файлу с данными, который содержит несколько строк.
@@ -15,8 +13,27 @@ import java.util.List;
 
 public class Solution {
     public static List<String> lines = new ArrayList<String>();
+    static {
+        FileInputStream fileInputStream = null;
+        try
+        {
+            fileInputStream = new FileInputStream(Constants.FILE_NAME);
+            Scanner scanner = new Scanner(fileInputStream);
+            while (scanner.hasNextLine()){
+                lines.add(scanner.nextLine());
+            }
+            scanner.close();
+        }
+        catch (FileNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+    }
 
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
+
         System.out.println(lines);
+
     }
 }
