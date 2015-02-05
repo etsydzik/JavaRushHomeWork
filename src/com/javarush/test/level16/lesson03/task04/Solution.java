@@ -13,8 +13,23 @@ public class Solution {
 
         System.out.println("*****************");
 
-        for (StackTraceElement element : Thread.currentThread().getStackTrace()) {
+        StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+        for (int i = 0; i < stackTrace.length; i++)
+        {
+            StackTraceElement element = stackTrace[i];
             System.out.println(element);
+        }
+    }
+    public static class SpecialThread implements Runnable{
+
+        @Override
+        public void run()
+        {
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            for (StackTraceElement stackTraceElement : stackTrace)
+            {
+                System.out.println(stackTraceElement);
+            }
         }
     }
 }
