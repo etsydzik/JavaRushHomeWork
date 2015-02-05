@@ -12,6 +12,17 @@ public class Solution {
 
     public static void main(String[] args) {
         //Add your code here - добавьте свой код тут
+        SpecialThread specialThread = new SpecialThread();
+        Thread thread1 = new Thread(specialThread);
+        Thread thread2 = new Thread(specialThread);
+        Thread thread3 = new Thread(specialThread);
+        Thread thread4 = new Thread(specialThread);
+        Thread thread5 = new Thread(specialThread);
+        list.add(thread1);
+        list.add(thread2);
+        list.add(thread3);
+        list.add(thread4);
+        list.add(thread5);
     }
 
     public static class SpecialThread implements Runnable {
