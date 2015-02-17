@@ -24,20 +24,25 @@ public class Solution {
             kitten1 = new Kitten("Котенок 1, мама - " + getName());
             kitten2 = new Kitten("Котенок 2, мама - " + getName());
             start();
+
         }
 
         public void run() {
             System.out.println(getName() + " родила 2 котенка");
             try {
                 initAllKitten();
+
             } catch (InterruptedException e) {
             }
+
             System.out.println(getName() + ": Все котята в корзинке. " + getName() + " собрала их назад");
         }
 
         private void initAllKitten() throws InterruptedException {
             kitten1.start();
+            kitten1.join();
             kitten2.start();
+            kitten2.join();
         }
     }
 
@@ -52,7 +57,12 @@ public class Solution {
         }
     }
 
-    private static void investigateWorld() {
+    private static void investigateWorld()
+    {
         //do nothing here
+        try
+        {
+            Thread.sleep(200);
+        }catch (InterruptedException e){}
     }
 }
