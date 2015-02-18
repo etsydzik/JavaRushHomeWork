@@ -12,7 +12,7 @@ public class Solution {
 
     public static void main(String[] args) throws InterruptedException {
         Politic ivanov = new Politic("Иванов");
-        ivanov.join();
+        ivanov.setPriority(Thread.MAX_PRIORITY);
         Politic petrov = new Politic("Петров");
         Politic sidorov = new Politic("Сидоров");
 
@@ -25,7 +25,7 @@ public class Solution {
     }
 
     public static class Politic extends Thread {
-        private int countSounds;
+        private volatile int countSounds;
 
         public Politic(String name) {
             super(name);
