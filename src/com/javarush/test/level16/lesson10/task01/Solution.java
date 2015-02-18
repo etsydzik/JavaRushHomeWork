@@ -29,9 +29,13 @@ public class Solution {
         private int seconds;
 
         public void run() {
+            long start = System.currentTimeMillis();
             try {
                 //add your code here - добавьте код тут
+                Thread.sleep(100000);
             } catch (InterruptedException e) {
+                long end = System.currentTimeMillis();
+                seconds = (int)((end - start)/1000);
                 System.out.println(seconds);
             }
         }
