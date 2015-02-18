@@ -45,12 +45,20 @@ public class Solution {
 
         private void printTime() throws InterruptedException {
             //add your code here - добавь код тут
+            this.seconds++;
+            if (seconds == 60){seconds = 0; minutes++;
+                if (minutes == 60){minutes = 0; hours++;
+                    if (hours == 24){hours = 0;}
+                }
+            }
+            Thread.sleep(1000);
 
             if (hours == 0 && minutes == 0 && seconds == 0) {
                 System.out.println(String.format("В г. %s сейчас полночь!", cityName));
             } else {
                 System.out.println(String.format("В г. %s сейчас %d:%d:%d!", cityName, hours, minutes, seconds));
             }
+
         }
     }
 }
