@@ -16,20 +16,25 @@ import java.util.List;
 2.2. Используй countReadStrings для подсчета уже считанных с консоли слов.
 */
 
-public class Solution {
+public class Solution
+{
     public static volatile byte countReadStrings;
     public static volatile BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) throws IOException
+    {
         //read count of strings
-        int count = Integer.parseInt(reader.readLine());
+        String s = reader.readLine();
+        int count = Integer.parseInt(s);
 
         //init threads
         ReaderThread consolReader1 = new ReaderThread();
         ReaderThread consolReader2 = new ReaderThread();
         ReaderThread consolReader3 = new ReaderThread();
 
-        while (count > countReadStrings) {
+        while (count > countReadStrings)
+        {
         }
 
         consolReader1.interrupt();
@@ -42,21 +47,38 @@ public class Solution {
         reader.close();
     }
 
-    public static class ReaderThread extends Thread {
+    public static class ReaderThread extends Thread
+    {
         private List<String> result = new ArrayList<String>();
+        public boolean isInterrupted = false;
 
-        public ReaderThread() {
+        public ReaderThread()
+        {
             start();
         }
 
-        public void run() {
+        public void run()
+        {
             //add your code here - добавьте код тут
+            while (!isInterrupted)
+            {
+                try
+                {
+                    result.add(reader.readLine());
+                    countReadStrings++;
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
         }
 
         @Override
-        public String toString() {
+        public String toString()
+        {
             String s = result.toString();
-            return s.substring(1, s.length()-1);
+            return s.substring(1, s.length() - 1);
         }
     }
 }
