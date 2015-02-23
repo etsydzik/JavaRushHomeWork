@@ -12,33 +12,52 @@ package com.javarush.test.level16.lesson13.home02;
 ...
 */
 
-public class Solution {
+import com.sun.org.apache.xpath.internal.SourceTree;
+
+public class Solution
+{
     public volatile static int COUNT = 4;
 
-    public static void main(String[] args) throws InterruptedException {
-        for (int i = 0; i < COUNT; i++) {
-            new SleepingThread();
+    public static void main(String[] args) throws InterruptedException
+    {
+        for (int i = 0; i < COUNT; i++)
+        {
+            SleepingThread sleepingThread = new SleepingThread();
+            sleepingThread.join();
         }
     }
 
-    public static class SleepingThread extends Thread {
+    public static class SleepingThread extends Thread
+    {
         private volatile int countDownIndex = COUNT;
         private static volatile int threadCount = 0;
 
-        public SleepingThread() {
+        public SleepingThread()
+        {
             super(String.valueOf(++threadCount));
             start();
         }
 
-        public void run() {
-            while (true) {
+        public void run()
+        {
+            while (true)
+            {
                 System.out.println(this);
                 if (--countDownIndex == 0) return;
                 //add sleep here - добавь sleep тут
+                try
+                {
+                    Thread.sleep(10);
+                }
+                catch (InterruptedException e)
+                {
+                    System.out.println("Нить прервана");
+                }
             }
         }
 
-        public String toString() {
+        public String toString()
+        {
             return "#" + getName() + ": " + countDownIndex;
         }
     }
