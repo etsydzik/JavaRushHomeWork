@@ -20,15 +20,51 @@ a b c
 d e f
 */
 
-public class Solution {
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.LinkedList;
+
+public class Solution
+{
     public static volatile BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 
-    public static void main(String[] args) throws InterruptedException {
+    public static class Read3Strings extends Thread{
+
+        LinkedList<String> list = new LinkedList<>();
+        @Override
+        public void run()
+        {
+            for (int i = 0; i < 3; i++)
+            {
+                try
+                {
+                    list.add(reader.readLine());
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void main(String[] args) throws InterruptedException
+    {
         Read3Strings t1 = new Read3Strings();
         Read3Strings t2 = new Read3Strings();
         t1.start();
+        t1.join();
         t2.start();
-        System.out.println(/*print t1 result here*/);
-        System.out.println(/*print t2 result here*/);
+        t2.join();
+        for (String s : t1.list)
+        {
+            System.out.print(s + " ");
+        }
+        System.out.println();
+        for (String s : t2.list)
+        {
+            System.out.print(s + " ");
+        }
     }
 }
