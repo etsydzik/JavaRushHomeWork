@@ -24,8 +24,9 @@ public class Solution
 
         static
         {
-            synchronized (new OurPresident())
+            synchronized (Solution.class)
             {
+                president = new OurPresident();
             }
         }
     }
