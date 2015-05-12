@@ -7,17 +7,28 @@ IMF - это Международный Валютный Фонд
 Внутри синхронизированного блока инициализируйте переменную imf так, чтобы метод getFund всегда возвращал один и тот же объект
 */
 
-public class Solution {
-    public static class IMF {
+public class Solution
+{
+    public static class IMF
+    {
 
         private static IMF imf;
 
-        public static IMF getFund() {
+        public static IMF getFund()
+        {
             //add your code here - добавь код тут
-            return imf;
+            synchronized (IMF.class)
+            {
+                if (imf == null)
+                {
+                    imf = new IMF();
+                }
+                return imf;
+            }
         }
 
-        private IMF() {
+        private IMF()
+        {
         }
     }
 }
