@@ -4,7 +4,9 @@ package com.javarush.test.level17.lesson10.home02;
 Реализуйте интерфейс Comparable<Beach> в классе Beach, который будет использоваться нитями.
 */
 
-public class Beach {
+import java.util.TreeSet;
+
+public class Beach implements Comparable<Beach>{
     private String name;      //название
     private float distance;   //расстояние
     private int quality;    //качество
@@ -15,27 +17,56 @@ public class Beach {
         this.quality = quality;
     }
 
-    public String getName() {
+    public synchronized String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public synchronized void setName(String name) {
         this.name = name;
     }
 
-    public float getDistance() {
+    public synchronized float getDistance() {
         return distance;
     }
 
-    public void setDistance(float distance) {
+    public synchronized void setDistance(float distance) {
         this.distance = distance;
     }
 
-    public int getQuality() {
+    public synchronized int getQuality() {
         return quality;
     }
 
-    public void setQuality(int quality) {
+    public synchronized void setQuality(int quality) {
         this.quality = quality;
     }
+
+
+
+    @Override
+    public synchronized int compareTo(Beach that)
+    {
+        int result = Integer.compare(this.getQuality(), that.getQuality());
+        if (result == 0) {
+            result = -Float.compare(this.getDistance(), that.getDistance());
+        }
+        return result;
+    }
+
+public static void main(String[] args){
+
+    TreeSet<Beach> beachSet = new TreeSet<Beach>();
+
+    beachSet.add(new Beach("beach1", 125.6f, 7));
+    beachSet.add(new Beach("beach2", 124.6f, 8));
+    beachSet.add(new Beach("beach3", 124.6f, 7));
+    beachSet.add(new Beach("beach4", 124.2f, 7));
+    beachSet.add(new Beach("beach5", 124.6f, 9));
+    beachSet.add(new Beach("beach6", 124.6f, 6));
+
+    for (Beach x : beachSet)
+    {
+        System.out.println(x.getName() + " " + x.getDistance() + " " + x.getQuality());
+    }
+}
 }
