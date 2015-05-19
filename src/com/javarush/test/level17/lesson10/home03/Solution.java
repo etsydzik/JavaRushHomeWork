@@ -40,7 +40,7 @@ public class Solution
             {
                 try
                 {
-                    new DrugsController().buy(getRandomDrug(), getRandomCount());
+                    drugsController.buy(getRandomDrug(), getRandomCount());
                     Thread.sleep(300);
                 }
                 catch (InterruptedException e)
@@ -59,7 +59,7 @@ public class Solution
         {
             while (!isStopped)
             {
-                new DrugsController().sell(getRandomDrug(), getRandomCount());
+                drugsController.sell(getRandomDrug(), getRandomCount());
                 waitAMoment();
             }
         }
