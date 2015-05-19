@@ -43,7 +43,6 @@ public class Bankomat {
         }
     };
 
-
     public static class SpendThread extends Thread {
         public SpendThread() {
             start();
@@ -64,7 +63,5 @@ public class Bankomat {
                 }
             }
         }
-    }
-
-    ;
+    };
 }
